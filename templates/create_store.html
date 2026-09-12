@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create Store | DijiKala
+{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <h2>🏪 Create Store</h2>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        {{ form.non_field_errors }}
+
+        <div class="form-group">
+            <label for="{{ form.name.id_for_label }}">
+                Store Name
+            </label>
+
+            {{ form.name }}
+
+            {{ form.name.errors }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.description.id_for_label }}">
+                Description
+            </label>
+
+            {{ form.description }}
+
+            {{ form.description.errors }}
+        </div>
+
+        <button type="submit" class="btn">
+            Create Store
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
